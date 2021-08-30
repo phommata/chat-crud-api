@@ -16,3 +16,12 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix'=>'api/v1', 'namespace' => 'V1'], function() use($router){
+    $router->post('/chat', 'ChatController@create');
+    $router->get('/chat', 'ChatController@read');
+    $router->get('/chat/{id}', 'ChatController@readById');
+    $router->get('/chat/user/{user}/timestamp/{timestamp}', 'ChatController@readByUserUpToTimestamp');
+    $router->put('/chat/{id}', 'ChatController@update');
+    $router->delete('/chat/{id}', 'ChatController@delete');
+});
