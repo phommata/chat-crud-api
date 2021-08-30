@@ -31,3 +31,37 @@ Copy .env.example to .env
 ### Curl host
 
     curl localhost:8000
+
+## Requests
+
+### Create chat message
+    curl --location --request POST 'http://localhost:8000/api/v1/chat' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+    "user": "joe",
+    "timestamp": "2020-8-23 10:13:22",
+    "message": "hi"
+    }'
+    
+    {
+        "user": "bob",
+        "timestamp": "2020-8-23 10:13:22",
+        "message": "hello",
+        "updated_at": "2021-08-23T07:51:43.000000Z",
+        "created_at": "2021-08-23T07:51:43.000000Z",
+        "id": 1
+    }
+
+### Read chat message
+    curl --location --request GET 'http://localhost:8000/api/v1/chat/user/joe/timestamp/2020-8-31'
+
+    [
+        {
+            "id": 2,
+            "user": "joe",
+            "timestamp": "2020-08-23 10:13:23",
+            "message": "hi",
+            "created_at": "2021-08-24T21:35:56.000000Z",
+            "updated_at": "2021-08-24T21:35:56.000000Z"
+        }
+    ]
