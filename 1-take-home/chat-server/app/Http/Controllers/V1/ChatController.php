@@ -54,7 +54,7 @@ class ChatController extends Controller
     public function readByUserUpToTimestamp($user, $timestamp, Request $request)
     {
         try {
-            return response()->json(Chat::where('user', $user)->where('timestamp', '<=', $timestamp)->get());
+            return response()->json(Chat::where('user', $user)->where('timestamp', '<=', $timestamp)->orderBy('timestamp')->get());
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], Response::HTTP_BAD_REQUEST);
         }
