@@ -1,5 +1,4 @@
-# Invoy Backend engineering assignment
-Design a simple chat server with just two endpoints.
+A simple chat server with just two endpoints.
 
 The first endpoint allows a client to submit a single chat message. Parameters should include a user, timestamp and the chat message.
 
