@@ -1,4 +1,4 @@
-# Chat Server API
+# Chat CRUD API
 
 A simple chat server with just two endpoints.
 
